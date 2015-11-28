@@ -43,7 +43,8 @@ typedef NS_ENUM(NSInteger, RANGE_DISPLAY_MODE) {
 @property (nonatomic) RANGE_DISPLAY_MODE rangeDisplayMode UI_APPEARANCE_SELECTOR;
 
 @property (nonatomic, readonly) NSDate *date;
+@property (nonatomic, readonly) BOOL enabled;
 @property (nonatomic, weak, readonly) GLCalendarDateRange *range;
 
-- (void)setDate:(NSDate *)date range:(GLCalendarDateRange *)range cellPosition:(CELL_POSITION)cellPosition enlargePoint:(ENLARGE_POINT)enlargePoint;
+- (void)setDate:(NSDate *)date range:(GLCalendarDateRange *)range cellPosition:(CELL_POSITION)cellPosition enlargePoint:(ENLARGE_POINT)enlargePoint enabled:(BOOL)enabled;
 @end

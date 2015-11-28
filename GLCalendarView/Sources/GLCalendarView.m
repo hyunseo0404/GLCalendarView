@@ -37,6 +37,7 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
 
 @synthesize firstDate = _firstDate;
 @synthesize lastDate = _lastDate;
+@synthesize dateRange = _dateRange;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -247,7 +248,7 @@ static NSString * const CELL_REUSE_IDENTIFIER = @"DayCell";
     } else {
         enlargePoint = ENLARGE_NONE;
     }
-    [cell setDate:date range:[self selectedRangeForDate:date] cellPosition:cellPosition enlargePoint:enlargePoint];
+    [cell setDate:date range:[self selectedRangeForDate:date] cellPosition:cellPosition enlargePoint:enlargePoint enabled:self.dateRange && [self.dateRange containsDate:date]];
     
     return cell;
 }

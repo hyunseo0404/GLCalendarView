@@ -28,6 +28,7 @@
 @property (nonatomic) ENLARGE_POINT enlargePoint;
 @property (nonatomic) BOOL inEdit;
 @property (nonatomic) CGFloat containerPadding;
+@property (nonatomic) BOOL enabled;
 @end
 
 @implementation GLCalendarDayCell
@@ -62,10 +63,11 @@
     self.containerPadding = [GLCalendarView appearance].padding;
 }
 
-- (void)setDate:(NSDate *)date range:(GLCalendarDateRange *)range cellPosition:(CELL_POSITION)cellPosition enlargePoint:(ENLARGE_POINT)enlargePoint
+- (void)setDate:(NSDate *)date range:(GLCalendarDateRange *)range cellPosition:(CELL_POSITION)cellPosition enlargePoint:(ENLARGE_POINT)enlargePoint enabled:(BOOL)enabled
 {
     _date = [date copy];
     _range = range;
+    _enabled = enabled;
     if (range) {
         self.inEdit = range.inEdit;
     } else {
@@ -139,6 +141,8 @@
     if ([self isFuture]) {
         [self setFutureDayLabelText:[NSString stringWithFormat:@"%ld", (long)day]];
     }
+    
+    self.monthLabel.alpha = self.dayLabel.alpha = _enabled ? 1.0 : 0.2;
     
     // background cover
     if (self.range) {

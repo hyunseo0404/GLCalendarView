@@ -35,6 +35,7 @@
 @property (nonatomic, readonly) NSCalendar *calendar;
 @property (nonatomic, copy) NSDate *firstDate;
 @property (nonatomic, copy) NSDate *lastDate;
+@property (nonatomic) GLCalendarDateRange *dateRange;
 @property (nonatomic, strong) NSMutableArray *ranges;
 @property (nonatomic) BOOL showMagnifier;
 @property (nonatomic, weak) id<GLCalendarViewDelegate> delegate;
